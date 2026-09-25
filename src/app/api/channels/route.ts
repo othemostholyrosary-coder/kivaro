@@ -3,7 +3,9 @@ import { prisma } from "@/lib/prisma";
 import { logger } from "@/lib/logger";
 import { requireAuth, isAuthenticated } from "@/lib/route-auth";
 
-const CHANNEL_TYPES = ["whatsapp", "email", "phone", "sms", "telegram"];
+// Phase 1 focuses on the core SMB support channels. SMS and Telegram remain
+// available for a later Pro integration, but are intentionally not exposed.
+const CHANNEL_TYPES = ["whatsapp", "email", "phone"];
 
 export async function GET(request: NextRequest) {
   const auth = await requireAuth(request, "channels:read");
