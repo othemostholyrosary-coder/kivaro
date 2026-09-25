@@ -68,7 +68,7 @@ export async function requireAuth(
   }
 
   // Fall back to cookie auth
-  const token = request.cookies.get("owly-token")?.value;
+  const token = request.cookies.get("kivaro-token")?.value;
 
   if (!token) {
     return NextResponse.json(

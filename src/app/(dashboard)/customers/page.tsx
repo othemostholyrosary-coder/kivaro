@@ -367,7 +367,7 @@ export default function CustomersPage() {
         actions={
           <button
             onClick={() => setShowAddModal(true)}
-            className="flex items-center gap-2 px-4 py-2 bg-owly-primary text-white rounded-lg hover:bg-owly-primary-dark transition-colors text-sm font-medium"
+            className="flex items-center gap-2 px-4 py-2 bg-kivaro-primary text-white rounded-lg hover:bg-kivaro-primary-dark transition-colors text-sm font-medium"
           >
             <Plus className="h-4 w-4" />
             Add Customer
@@ -384,16 +384,16 @@ export default function CustomersPage() {
           )}
         >
           {/* Search & Filters */}
-          <div className="px-6 py-4 bg-owly-surface border-b border-owly-border">
+          <div className="px-6 py-4 bg-kivaro-surface border-b border-kivaro-border">
             <div className="flex items-center gap-3">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-owly-text-light" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-kivaro-text-light" />
                 <input
                   type="text"
                   placeholder="Search by name, email, or phone..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 text-sm border border-owly-border rounded-lg bg-owly-bg focus:outline-none focus:ring-2 focus:ring-owly-primary/30 focus:border-owly-primary"
+                  className="w-full pl-9 pr-3 py-2 text-sm border border-kivaro-border rounded-lg bg-kivaro-bg focus:outline-none focus:ring-2 focus:ring-kivaro-primary/30 focus:border-kivaro-primary"
                 />
               </div>
               <button
@@ -402,7 +402,7 @@ export default function CustomersPage() {
                   "flex items-center gap-2 px-3 py-2 text-sm rounded-lg border transition-colors",
                   blockedFilter
                     ? "bg-red-50 border-red-200 text-red-700"
-                    : "border-owly-border text-owly-text-light hover:bg-owly-primary-50"
+                    : "border-kivaro-border text-kivaro-text-light hover:bg-kivaro-primary-50"
                 )}
               >
                 <ShieldAlert className="h-4 w-4" />
@@ -415,17 +415,17 @@ export default function CustomersPage() {
           <div className="flex-1 overflow-auto">
             {loading ? (
               <div className="flex items-center justify-center h-64">
-                <div className="text-sm text-owly-text-light">Loading...</div>
+                <div className="text-sm text-kivaro-text-light">Loading...</div>
               </div>
             ) : customers.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-64 px-6 text-center">
-                <div className="p-4 rounded-full bg-owly-primary-50 mb-4">
-                  <Contact className="h-8 w-8 text-owly-primary" />
+                <div className="p-4 rounded-full bg-kivaro-primary-50 mb-4">
+                  <Contact className="h-8 w-8 text-kivaro-primary" />
                 </div>
-                <p className="font-medium text-owly-text">
+                <p className="font-medium text-kivaro-text">
                   No customers found
                 </p>
-                <p className="text-sm text-owly-text-light mt-1">
+                <p className="text-sm text-kivaro-text-light mt-1">
                   {searchQuery || blockedFilter
                     ? "Try adjusting your search or filters"
                     : "Add your first customer to get started"}
@@ -434,80 +434,80 @@ export default function CustomersPage() {
             ) : (
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-owly-border bg-owly-surface/50">
-                    <th className="text-left px-6 py-3 text-xs font-semibold text-owly-text-light uppercase tracking-wider">
+                  <tr className="border-b border-kivaro-border bg-kivaro-surface/50">
+                    <th className="text-left px-6 py-3 text-xs font-semibold text-kivaro-text-light uppercase tracking-wider">
                       Name
                     </th>
-                    <th className="text-left px-4 py-3 text-xs font-semibold text-owly-text-light uppercase tracking-wider hidden md:table-cell">
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-kivaro-text-light uppercase tracking-wider hidden md:table-cell">
                       Email
                     </th>
-                    <th className="text-left px-4 py-3 text-xs font-semibold text-owly-text-light uppercase tracking-wider hidden lg:table-cell">
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-kivaro-text-light uppercase tracking-wider hidden lg:table-cell">
                       Phone
                     </th>
-                    <th className="text-left px-4 py-3 text-xs font-semibold text-owly-text-light uppercase tracking-wider hidden xl:table-cell">
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-kivaro-text-light uppercase tracking-wider hidden xl:table-cell">
                       Tags
                     </th>
-                    <th className="text-left px-4 py-3 text-xs font-semibold text-owly-text-light uppercase tracking-wider hidden lg:table-cell">
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-kivaro-text-light uppercase tracking-wider hidden lg:table-cell">
                       First Contact
                     </th>
-                    <th className="text-left px-4 py-3 text-xs font-semibold text-owly-text-light uppercase tracking-wider hidden md:table-cell">
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-kivaro-text-light uppercase tracking-wider hidden md:table-cell">
                       Last Contact
                     </th>
-                    <th className="text-left px-4 py-3 text-xs font-semibold text-owly-text-light uppercase tracking-wider">
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-kivaro-text-light uppercase tracking-wider">
                       Status
                     </th>
-                    <th className="text-right px-6 py-3 text-xs font-semibold text-owly-text-light uppercase tracking-wider">
+                    <th className="text-right px-6 py-3 text-xs font-semibold text-kivaro-text-light uppercase tracking-wider">
                       Actions
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-owly-border">
+                <tbody className="divide-y divide-kivaro-border">
                   {customers.map((customer) => (
                     <tr
                       key={customer.id}
                       onClick={() => handleSelectCustomer(customer)}
                       className={cn(
-                        "hover:bg-owly-primary-50/50 cursor-pointer transition-colors",
+                        "hover:bg-kivaro-primary-50/50 cursor-pointer transition-colors",
                         selectedCustomer?.id === customer.id &&
-                          "bg-owly-primary-50"
+                          "bg-kivaro-primary-50"
                       )}
                     >
                       <td className="px-6 py-3">
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-owly-primary-100 flex items-center justify-center flex-shrink-0">
-                            <span className="text-sm font-medium text-owly-primary">
+                          <div className="w-8 h-8 rounded-full bg-kivaro-primary-100 flex items-center justify-center flex-shrink-0">
+                            <span className="text-sm font-medium text-kivaro-primary">
                               {customer.name.charAt(0).toUpperCase()}
                             </span>
                           </div>
-                          <span className="text-sm font-medium text-owly-text truncate">
+                          <span className="text-sm font-medium text-kivaro-text truncate">
                             {customer.name}
                           </span>
                         </div>
                       </td>
                       <td className="px-4 py-3 hidden md:table-cell">
-                        <span className="text-sm text-owly-text-light truncate">
+                        <span className="text-sm text-kivaro-text-light truncate">
                           {customer.email || "--"}
                         </span>
                       </td>
                       <td className="px-4 py-3 hidden lg:table-cell">
-                        <span className="text-sm text-owly-text-light">
+                        <span className="text-sm text-kivaro-text-light">
                           {customer.phone || "--"}
                         </span>
                       </td>
                       <td className="px-4 py-3 hidden xl:table-cell">
                         {renderTags(customer.tags) || (
-                          <span className="text-sm text-owly-text-light">
+                          <span className="text-sm text-kivaro-text-light">
                             --
                           </span>
                         )}
                       </td>
                       <td className="px-4 py-3 hidden lg:table-cell">
-                        <span className="text-xs text-owly-text-light">
+                        <span className="text-xs text-kivaro-text-light">
                           {formatDate(customer.firstContact)}
                         </span>
                       </td>
                       <td className="px-4 py-3 hidden md:table-cell">
-                        <span className="text-xs text-owly-text-light">
+                        <span className="text-xs text-kivaro-text-light">
                           {formatDate(customer.lastContact)}
                         </span>
                       </td>
@@ -529,7 +529,7 @@ export default function CustomersPage() {
                             e.stopPropagation();
                             handleDeleteCustomer(customer.id);
                           }}
-                          className="p-1.5 text-owly-text-light hover:text-owly-danger hover:bg-red-50 rounded-lg transition-colors"
+                          className="p-1.5 text-kivaro-text-light hover:text-kivaro-danger hover:bg-red-50 rounded-lg transition-colors"
                           title="Delete customer"
                         >
                           <Trash2 className="h-4 w-4" />
@@ -544,8 +544,8 @@ export default function CustomersPage() {
 
           {/* Pagination */}
           {pagination.totalPages > 1 && (
-            <div className="flex items-center justify-between px-6 py-3 bg-owly-surface border-t border-owly-border">
-              <span className="text-sm text-owly-text-light">
+            <div className="flex items-center justify-between px-6 py-3 bg-kivaro-surface border-t border-kivaro-border">
+              <span className="text-sm text-kivaro-text-light">
                 Showing{" "}
                 {Math.min(
                   (pagination.page - 1) * pagination.limit + 1,
@@ -565,8 +565,8 @@ export default function CustomersPage() {
                   className={cn(
                     "p-2 rounded-lg transition-colors",
                     pagination.page <= 1
-                      ? "text-owly-text-light/40 cursor-not-allowed"
-                      : "text-owly-text-light hover:bg-owly-primary-50 hover:text-owly-primary"
+                      ? "text-kivaro-text-light/40 cursor-not-allowed"
+                      : "text-kivaro-text-light hover:bg-kivaro-primary-50 hover:text-kivaro-primary"
                   )}
                 >
                   <ChevronLeft className="h-4 w-4" />
@@ -593,8 +593,8 @@ export default function CustomersPage() {
                         className={cn(
                           "w-8 h-8 text-sm rounded-lg transition-colors",
                           pageNum === pagination.page
-                            ? "bg-owly-primary text-white"
-                            : "text-owly-text-light hover:bg-owly-primary-50 hover:text-owly-primary"
+                            ? "bg-kivaro-primary text-white"
+                            : "text-kivaro-text-light hover:bg-kivaro-primary-50 hover:text-kivaro-primary"
                         )}
                       >
                         {pageNum}
@@ -608,8 +608,8 @@ export default function CustomersPage() {
                   className={cn(
                     "p-2 rounded-lg transition-colors",
                     pagination.page >= pagination.totalPages
-                      ? "text-owly-text-light/40 cursor-not-allowed"
-                      : "text-owly-text-light hover:bg-owly-primary-50 hover:text-owly-primary"
+                      ? "text-kivaro-text-light/40 cursor-not-allowed"
+                      : "text-kivaro-text-light hover:bg-kivaro-primary-50 hover:text-kivaro-primary"
                   )}
                 >
                   <ChevronRight className="h-4 w-4" />
@@ -621,17 +621,17 @@ export default function CustomersPage() {
 
         {/* Detail Panel */}
         {selectedCustomer && (
-          <div className="w-full lg:w-[480px] xl:w-[540px] border-l border-owly-border bg-owly-surface flex flex-col overflow-hidden">
+          <div className="w-full lg:w-[480px] xl:w-[540px] border-l border-kivaro-border bg-kivaro-surface flex flex-col overflow-hidden">
             {/* Detail Header */}
-            <div className="px-4 py-3 border-b border-owly-border flex items-center gap-3">
+            <div className="px-4 py-3 border-b border-kivaro-border flex items-center gap-3">
               <button
                 onClick={handleCloseDetail}
-                className="lg:hidden p-1.5 hover:bg-owly-primary-50 rounded-lg transition-colors"
+                className="lg:hidden p-1.5 hover:bg-kivaro-primary-50 rounded-lg transition-colors"
               >
-                <ChevronLeft className="h-5 w-5 text-owly-text" />
+                <ChevronLeft className="h-5 w-5 text-kivaro-text" />
               </button>
-              <div className="w-10 h-10 rounded-full bg-owly-primary-100 flex items-center justify-center flex-shrink-0">
-                <span className="text-lg font-semibold text-owly-primary">
+              <div className="w-10 h-10 rounded-full bg-kivaro-primary-100 flex items-center justify-center flex-shrink-0">
+                <span className="text-lg font-semibold text-kivaro-primary">
                   {selectedCustomer.name.charAt(0).toUpperCase()}
                 </span>
               </div>
@@ -643,10 +643,10 @@ export default function CustomersPage() {
                     onChange={(e) =>
                       setEditForm({ ...editForm, name: e.target.value })
                     }
-                    className="text-sm font-semibold text-owly-text bg-owly-bg border border-owly-border rounded px-2 py-1 w-full focus:outline-none focus:ring-2 focus:ring-owly-primary/30"
+                    className="text-sm font-semibold text-kivaro-text bg-kivaro-bg border border-kivaro-border rounded px-2 py-1 w-full focus:outline-none focus:ring-2 focus:ring-kivaro-primary/30"
                   />
                 ) : (
-                  <h3 className="font-semibold text-owly-text truncate">
+                  <h3 className="font-semibold text-kivaro-text truncate">
                     {selectedCustomer.name}
                   </h3>
                 )}
@@ -657,7 +657,7 @@ export default function CustomersPage() {
                       Blocked
                     </span>
                   )}
-                  <span className="text-xs text-owly-text-light">
+                  <span className="text-xs text-kivaro-text-light">
                     {selectedCustomer._count.notes} notes
                   </span>
                 </div>
@@ -667,7 +667,7 @@ export default function CustomersPage() {
                   <>
                     <button
                       onClick={handleSaveEdit}
-                      className="px-3 py-1.5 text-xs font-medium bg-owly-primary text-white rounded-lg hover:bg-owly-primary-dark transition-colors"
+                      className="px-3 py-1.5 text-xs font-medium bg-kivaro-primary text-white rounded-lg hover:bg-kivaro-primary-dark transition-colors"
                     >
                       Save
                     </button>
@@ -682,7 +682,7 @@ export default function CustomersPage() {
                           tags: selectedCustomer.tags,
                         });
                       }}
-                      className="px-3 py-1.5 text-xs font-medium text-owly-text-light border border-owly-border rounded-lg hover:bg-owly-primary-50 transition-colors"
+                      className="px-3 py-1.5 text-xs font-medium text-kivaro-text-light border border-kivaro-border rounded-lg hover:bg-kivaro-primary-50 transition-colors"
                     >
                       Cancel
                     </button>
@@ -691,7 +691,7 @@ export default function CustomersPage() {
                   <>
                     <button
                       onClick={() => setEditMode(true)}
-                      className="p-1.5 text-owly-text-light hover:text-owly-primary hover:bg-owly-primary-50 rounded-lg transition-colors"
+                      className="p-1.5 text-kivaro-text-light hover:text-kivaro-primary hover:bg-kivaro-primary-50 rounded-lg transition-colors"
                       title="Edit customer"
                     >
                       <Edit3 className="h-4 w-4" />
@@ -702,7 +702,7 @@ export default function CustomersPage() {
                         "p-1.5 rounded-lg transition-colors",
                         selectedCustomer.isBlocked
                           ? "text-green-600 hover:bg-green-50"
-                          : "text-owly-text-light hover:text-red-600 hover:bg-red-50"
+                          : "text-kivaro-text-light hover:text-red-600 hover:bg-red-50"
                       )}
                       title={
                         selectedCustomer.isBlocked
@@ -718,7 +718,7 @@ export default function CustomersPage() {
                     </button>
                     <button
                       onClick={handleCloseDetail}
-                      className="hidden lg:block p-1.5 text-owly-text-light hover:text-owly-text hover:bg-owly-primary-50 rounded-lg transition-colors"
+                      className="hidden lg:block p-1.5 text-kivaro-text-light hover:text-kivaro-text hover:bg-kivaro-primary-50 rounded-lg transition-colors"
                     >
                       <X className="h-4 w-4" />
                     </button>
@@ -729,16 +729,16 @@ export default function CustomersPage() {
 
             {detailLoading && !selectedCustomer?.notes ? (
               <div className="flex-1 flex items-center justify-center">
-                <div className="text-sm text-owly-text-light">Loading...</div>
+                <div className="text-sm text-kivaro-text-light">Loading...</div>
               </div>
             ) : (
               <div className="flex-1 overflow-y-auto">
                 {/* Contact Info */}
-                <div className="px-4 py-3 border-b border-owly-border space-y-2">
+                <div className="px-4 py-3 border-b border-kivaro-border space-y-2">
                   {editMode ? (
                     <div className="space-y-2">
                       <div>
-                        <label className="text-xs text-owly-text-light font-medium">
+                        <label className="text-xs text-kivaro-text-light font-medium">
                           Email
                         </label>
                         <input
@@ -747,12 +747,12 @@ export default function CustomersPage() {
                           onChange={(e) =>
                             setEditForm({ ...editForm, email: e.target.value })
                           }
-                          className="w-full mt-0.5 text-sm bg-owly-bg border border-owly-border rounded px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-owly-primary/30"
+                          className="w-full mt-0.5 text-sm bg-kivaro-bg border border-kivaro-border rounded px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-kivaro-primary/30"
                           placeholder="Email address"
                         />
                       </div>
                       <div>
-                        <label className="text-xs text-owly-text-light font-medium">
+                        <label className="text-xs text-kivaro-text-light font-medium">
                           Phone
                         </label>
                         <input
@@ -761,12 +761,12 @@ export default function CustomersPage() {
                           onChange={(e) =>
                             setEditForm({ ...editForm, phone: e.target.value })
                           }
-                          className="w-full mt-0.5 text-sm bg-owly-bg border border-owly-border rounded px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-owly-primary/30"
+                          className="w-full mt-0.5 text-sm bg-kivaro-bg border border-kivaro-border rounded px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-kivaro-primary/30"
                           placeholder="Phone number"
                         />
                       </div>
                       <div>
-                        <label className="text-xs text-owly-text-light font-medium">
+                        <label className="text-xs text-kivaro-text-light font-medium">
                           WhatsApp
                         </label>
                         <input
@@ -778,7 +778,7 @@ export default function CustomersPage() {
                               whatsapp: e.target.value,
                             })
                           }
-                          className="w-full mt-0.5 text-sm bg-owly-bg border border-owly-border rounded px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-owly-primary/30"
+                          className="w-full mt-0.5 text-sm bg-kivaro-bg border border-kivaro-border rounded px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-kivaro-primary/30"
                           placeholder="WhatsApp number"
                         />
                       </div>
@@ -787,31 +787,31 @@ export default function CustomersPage() {
                     <div className="grid grid-cols-2 gap-2">
                       {selectedCustomer.email && (
                         <div className="flex items-center gap-2">
-                          <Mail className="h-3.5 w-3.5 text-owly-text-light flex-shrink-0" />
-                          <span className="text-sm text-owly-text truncate">
+                          <Mail className="h-3.5 w-3.5 text-kivaro-text-light flex-shrink-0" />
+                          <span className="text-sm text-kivaro-text truncate">
                             {selectedCustomer.email}
                           </span>
                         </div>
                       )}
                       {selectedCustomer.phone && (
                         <div className="flex items-center gap-2">
-                          <Phone className="h-3.5 w-3.5 text-owly-text-light flex-shrink-0" />
-                          <span className="text-sm text-owly-text">
+                          <Phone className="h-3.5 w-3.5 text-kivaro-text-light flex-shrink-0" />
+                          <span className="text-sm text-kivaro-text">
                             {selectedCustomer.phone}
                           </span>
                         </div>
                       )}
                       {selectedCustomer.whatsapp && (
                         <div className="flex items-center gap-2">
-                          <MessageCircle className="h-3.5 w-3.5 text-owly-text-light flex-shrink-0" />
-                          <span className="text-sm text-owly-text">
+                          <MessageCircle className="h-3.5 w-3.5 text-kivaro-text-light flex-shrink-0" />
+                          <span className="text-sm text-kivaro-text">
                             {selectedCustomer.whatsapp}
                           </span>
                         </div>
                       )}
                       <div className="flex items-center gap-2">
-                        <Clock className="h-3.5 w-3.5 text-owly-text-light flex-shrink-0" />
-                        <span className="text-xs text-owly-text-light">
+                        <Clock className="h-3.5 w-3.5 text-kivaro-text-light flex-shrink-0" />
+                        <span className="text-xs text-kivaro-text-light">
                           Since {formatDate(selectedCustomer.firstContact)}
                         </span>
                       </div>
@@ -820,9 +820,9 @@ export default function CustomersPage() {
                 </div>
 
                 {/* Tags */}
-                <div className="px-4 py-3 border-b border-owly-border">
+                <div className="px-4 py-3 border-b border-kivaro-border">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-semibold text-owly-text-light uppercase tracking-wider">
+                    <span className="text-xs font-semibold text-kivaro-text-light uppercase tracking-wider">
                       Tags
                     </span>
                   </div>
@@ -855,12 +855,12 @@ export default function CustomersPage() {
                         type="text"
                         placeholder="Type a tag and press Enter..."
                         onKeyDown={handleAddTag}
-                        className="w-full text-sm bg-owly-bg border border-owly-border rounded px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-owly-primary/30"
+                        className="w-full text-sm bg-kivaro-bg border border-kivaro-border rounded px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-kivaro-primary/30"
                       />
                     </div>
                   ) : (
                     renderTags(selectedCustomer.tags) || (
-                      <span className="text-sm text-owly-text-light">
+                      <span className="text-sm text-kivaro-text-light">
                         No tags
                       </span>
                     )
@@ -868,14 +868,14 @@ export default function CustomersPage() {
                 </div>
 
                 {/* Tabs */}
-                <div className="flex border-b border-owly-border">
+                <div className="flex border-b border-kivaro-border">
                   <button
                     onClick={() => setDetailTab("notes")}
                     className={cn(
                       "flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium transition-colors",
                       detailTab === "notes"
-                        ? "text-owly-primary border-b-2 border-owly-primary"
-                        : "text-owly-text-light hover:text-owly-text"
+                        ? "text-kivaro-primary border-b-2 border-kivaro-primary"
+                        : "text-kivaro-text-light hover:text-kivaro-text"
                     )}
                   >
                     <StickyNote className="h-4 w-4" />
@@ -886,8 +886,8 @@ export default function CustomersPage() {
                     className={cn(
                       "flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium transition-colors",
                       detailTab === "conversations"
-                        ? "text-owly-primary border-b-2 border-owly-primary"
-                        : "text-owly-text-light hover:text-owly-text"
+                        ? "text-kivaro-primary border-b-2 border-kivaro-primary"
+                        : "text-kivaro-text-light hover:text-kivaro-text"
                     )}
                   >
                     <MessageSquare className="h-4 w-4" />
@@ -909,7 +909,7 @@ export default function CustomersPage() {
                           onKeyDown={(e) => {
                             if (e.key === "Enter") handleAddNote();
                           }}
-                          className="flex-1 text-sm bg-owly-bg border border-owly-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-owly-primary/30 focus:border-owly-primary"
+                          className="flex-1 text-sm bg-kivaro-bg border border-kivaro-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-kivaro-primary/30 focus:border-kivaro-primary"
                         />
                         <button
                           onClick={handleAddNote}
@@ -917,8 +917,8 @@ export default function CustomersPage() {
                           className={cn(
                             "p-2 rounded-lg transition-colors",
                             newNote.trim() && !addingNote
-                              ? "bg-owly-primary text-white hover:bg-owly-primary-dark"
-                              : "bg-owly-border text-owly-text-light cursor-not-allowed"
+                              ? "bg-kivaro-primary text-white hover:bg-kivaro-primary-dark"
+                              : "bg-kivaro-border text-kivaro-text-light cursor-not-allowed"
                           )}
                         >
                           <Send className="h-4 w-4" />
@@ -928,8 +928,8 @@ export default function CustomersPage() {
                       {/* Notes Timeline */}
                       {selectedCustomer.notes.length === 0 ? (
                         <div className="text-center py-8">
-                          <StickyNote className="h-8 w-8 text-owly-text-light/40 mx-auto mb-2" />
-                          <p className="text-sm text-owly-text-light">
+                          <StickyNote className="h-8 w-8 text-kivaro-text-light/40 mx-auto mb-2" />
+                          <p className="text-sm text-kivaro-text-light">
                             No notes yet
                           </p>
                         </div>
@@ -938,20 +938,20 @@ export default function CustomersPage() {
                           {selectedCustomer.notes.map((note) => (
                             <div
                               key={note.id}
-                              className="bg-owly-bg border border-owly-border rounded-lg p-3"
+                              className="bg-kivaro-bg border border-kivaro-border rounded-lg p-3"
                             >
-                              <p className="text-sm text-owly-text whitespace-pre-wrap">
+                              <p className="text-sm text-kivaro-text whitespace-pre-wrap">
                                 {note.content}
                               </p>
                               <div className="flex items-center gap-2 mt-2">
-                                <User className="h-3 w-3 text-owly-text-light" />
-                                <span className="text-xs text-owly-text-light">
+                                <User className="h-3 w-3 text-kivaro-text-light" />
+                                <span className="text-xs text-kivaro-text-light">
                                   {note.authorName}
                                 </span>
-                                <span className="text-xs text-owly-text-light">
+                                <span className="text-xs text-kivaro-text-light">
                                   --
                                 </span>
-                                <span className="text-xs text-owly-text-light">
+                                <span className="text-xs text-kivaro-text-light">
                                   {formatDate(note.createdAt)}
                                 </span>
                               </div>
@@ -965,8 +965,8 @@ export default function CustomersPage() {
                       {!selectedCustomer.conversations ||
                       selectedCustomer.conversations.length === 0 ? (
                         <div className="text-center py-8">
-                          <MessageSquare className="h-8 w-8 text-owly-text-light/40 mx-auto mb-2" />
-                          <p className="text-sm text-owly-text-light">
+                          <MessageSquare className="h-8 w-8 text-kivaro-text-light/40 mx-auto mb-2" />
+                          <p className="text-sm text-kivaro-text-light">
                             No conversations found
                           </p>
                         </div>
@@ -978,20 +978,20 @@ export default function CustomersPage() {
                             return (
                               <div
                                 key={conv.id}
-                                className="flex items-center gap-3 bg-owly-bg border border-owly-border rounded-lg p-3 hover:border-owly-primary/30 transition-colors"
+                                className="flex items-center gap-3 bg-kivaro-bg border border-kivaro-border rounded-lg p-3 hover:border-kivaro-primary/30 transition-colors"
                               >
                                 <div
                                   className={cn(
                                     "p-2 rounded-lg flex-shrink-0",
                                     channelColors[conv.channel] ||
-                                      "text-owly-primary bg-owly-primary-50"
+                                      "text-kivaro-primary bg-kivaro-primary-50"
                                   )}
                                 >
                                   <ChannelIcon className="h-4 w-4" />
                                 </div>
                                 <div className="flex-1 min-w-0">
                                   <div className="flex items-center gap-2">
-                                    <span className="text-sm font-medium text-owly-text">
+                                    <span className="text-sm font-medium text-kivaro-text">
                                       {getChannelLabel(conv.channel)}
                                     </span>
                                     <span
@@ -1004,13 +1004,13 @@ export default function CustomersPage() {
                                     </span>
                                   </div>
                                   <div className="flex items-center gap-2 mt-0.5">
-                                    <span className="text-xs text-owly-text-light">
+                                    <span className="text-xs text-kivaro-text-light">
                                       {formatDate(conv.createdAt)}
                                     </span>
-                                    <span className="text-xs text-owly-text-light">
+                                    <span className="text-xs text-kivaro-text-light">
                                       --
                                     </span>
-                                    <span className="text-xs text-owly-text-light">
+                                    <span className="text-xs text-kivaro-text-light">
                                       {conv._count.messages} messages
                                     </span>
                                   </div>
@@ -1036,21 +1036,21 @@ export default function CustomersPage() {
             className="absolute inset-0 bg-black/40"
             onClick={() => setShowAddModal(false)}
           />
-          <div className="relative bg-owly-surface rounded-xl shadow-xl border border-owly-border w-full max-w-md mx-4 animate-scale-in">
-            <div className="flex items-center justify-between px-5 py-4 border-b border-owly-border">
-              <h3 className="text-lg font-semibold text-owly-text">
+          <div className="relative bg-kivaro-surface rounded-xl shadow-xl border border-kivaro-border w-full max-w-md mx-4 animate-scale-in">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-kivaro-border">
+              <h3 className="text-lg font-semibold text-kivaro-text">
                 Add Customer
               </h3>
               <button
                 onClick={() => setShowAddModal(false)}
-                className="p-1.5 text-owly-text-light hover:text-owly-text hover:bg-owly-primary-50 rounded-lg transition-colors"
+                className="p-1.5 text-kivaro-text-light hover:text-kivaro-text hover:bg-kivaro-primary-50 rounded-lg transition-colors"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
             <div className="px-5 py-4 space-y-3">
               <div>
-                <label className="block text-sm font-medium text-owly-text mb-1">
+                <label className="block text-sm font-medium text-kivaro-text mb-1">
                   Name *
                 </label>
                 <input
@@ -1059,13 +1059,13 @@ export default function CustomersPage() {
                   onChange={(e) =>
                     setAddForm({ ...addForm, name: e.target.value })
                   }
-                  className="w-full px-3 py-2 text-sm border border-owly-border rounded-lg bg-owly-bg focus:outline-none focus:ring-2 focus:ring-owly-primary/30 focus:border-owly-primary"
+                  className="w-full px-3 py-2 text-sm border border-kivaro-border rounded-lg bg-kivaro-bg focus:outline-none focus:ring-2 focus:ring-kivaro-primary/30 focus:border-kivaro-primary"
                   placeholder="Customer name"
                   autoFocus
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-owly-text mb-1">
+                <label className="block text-sm font-medium text-kivaro-text mb-1">
                   Email
                 </label>
                 <input
@@ -1074,12 +1074,12 @@ export default function CustomersPage() {
                   onChange={(e) =>
                     setAddForm({ ...addForm, email: e.target.value })
                   }
-                  className="w-full px-3 py-2 text-sm border border-owly-border rounded-lg bg-owly-bg focus:outline-none focus:ring-2 focus:ring-owly-primary/30 focus:border-owly-primary"
+                  className="w-full px-3 py-2 text-sm border border-kivaro-border rounded-lg bg-kivaro-bg focus:outline-none focus:ring-2 focus:ring-kivaro-primary/30 focus:border-kivaro-primary"
                   placeholder="Email address"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-owly-text mb-1">
+                <label className="block text-sm font-medium text-kivaro-text mb-1">
                   Phone
                 </label>
                 <input
@@ -1088,12 +1088,12 @@ export default function CustomersPage() {
                   onChange={(e) =>
                     setAddForm({ ...addForm, phone: e.target.value })
                   }
-                  className="w-full px-3 py-2 text-sm border border-owly-border rounded-lg bg-owly-bg focus:outline-none focus:ring-2 focus:ring-owly-primary/30 focus:border-owly-primary"
+                  className="w-full px-3 py-2 text-sm border border-kivaro-border rounded-lg bg-kivaro-bg focus:outline-none focus:ring-2 focus:ring-kivaro-primary/30 focus:border-kivaro-primary"
                   placeholder="Phone number"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-owly-text mb-1">
+                <label className="block text-sm font-medium text-kivaro-text mb-1">
                   WhatsApp
                 </label>
                 <input
@@ -1102,12 +1102,12 @@ export default function CustomersPage() {
                   onChange={(e) =>
                     setAddForm({ ...addForm, whatsapp: e.target.value })
                   }
-                  className="w-full px-3 py-2 text-sm border border-owly-border rounded-lg bg-owly-bg focus:outline-none focus:ring-2 focus:ring-owly-primary/30 focus:border-owly-primary"
+                  className="w-full px-3 py-2 text-sm border border-kivaro-border rounded-lg bg-kivaro-bg focus:outline-none focus:ring-2 focus:ring-kivaro-primary/30 focus:border-kivaro-primary"
                   placeholder="WhatsApp number"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-owly-text mb-1">
+                <label className="block text-sm font-medium text-kivaro-text mb-1">
                   Tags
                 </label>
                 <input
@@ -1116,15 +1116,15 @@ export default function CustomersPage() {
                   onChange={(e) =>
                     setAddForm({ ...addForm, tags: e.target.value })
                   }
-                  className="w-full px-3 py-2 text-sm border border-owly-border rounded-lg bg-owly-bg focus:outline-none focus:ring-2 focus:ring-owly-primary/30 focus:border-owly-primary"
+                  className="w-full px-3 py-2 text-sm border border-kivaro-border rounded-lg bg-kivaro-bg focus:outline-none focus:ring-2 focus:ring-kivaro-primary/30 focus:border-kivaro-primary"
                   placeholder="Comma-separated tags (e.g. VIP, Premium)"
                 />
               </div>
             </div>
-            <div className="flex items-center justify-end gap-2 px-5 py-4 border-t border-owly-border">
+            <div className="flex items-center justify-end gap-2 px-5 py-4 border-t border-kivaro-border">
               <button
                 onClick={() => setShowAddModal(false)}
-                className="px-4 py-2 text-sm font-medium text-owly-text-light border border-owly-border rounded-lg hover:bg-owly-primary-50 transition-colors"
+                className="px-4 py-2 text-sm font-medium text-kivaro-text-light border border-kivaro-border rounded-lg hover:bg-kivaro-primary-50 transition-colors"
               >
                 Cancel
               </button>
@@ -1134,8 +1134,8 @@ export default function CustomersPage() {
                 className={cn(
                   "px-4 py-2 text-sm font-medium rounded-lg transition-colors",
                   addForm.name.trim() && !addLoading
-                    ? "bg-owly-primary text-white hover:bg-owly-primary-dark"
-                    : "bg-owly-border text-owly-text-light cursor-not-allowed"
+                    ? "bg-kivaro-primary text-white hover:bg-kivaro-primary-dark"
+                    : "bg-kivaro-border text-kivaro-text-light cursor-not-allowed"
                 )}
               >
                 {addLoading ? "Adding..." : "Add Customer"}

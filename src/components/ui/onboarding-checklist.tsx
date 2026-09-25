@@ -124,7 +124,7 @@ export function OnboardingChecklist() {
 
   useEffect(() => {
     // Check if user previously dismissed
-    const wasDismissed = localStorage.getItem("owly-onboarding-dismissed");
+    const wasDismissed = localStorage.getItem("kivaro-onboarding-dismissed");
     if (wasDismissed === "true") {
       setDismissed(true);
     }
@@ -133,7 +133,7 @@ export function OnboardingChecklist() {
 
   function handleDismiss() {
     setDismissed(true);
-    localStorage.setItem("owly-onboarding-dismissed", "true");
+    localStorage.setItem("kivaro-onboarding-dismissed", "true");
   }
 
   const completedCount = items.filter((i) => i.completed).length;
@@ -151,23 +151,23 @@ export function OnboardingChecklist() {
   }
 
   return (
-    <div className="bg-owly-surface rounded-xl border border-owly-border overflow-hidden">
+    <div className="bg-kivaro-surface rounded-xl border border-kivaro-border overflow-hidden">
       {/* Header */}
-      <div className="px-5 py-4 border-b border-owly-border">
+      <div className="px-5 py-4 border-b border-kivaro-border">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="font-semibold text-owly-text">Getting Started</h3>
-            <p className="text-xs text-owly-text-light mt-0.5">
-              Complete these steps to set up Owly
+            <h3 className="font-semibold text-kivaro-text">Getting Started</h3>
+            <p className="text-xs text-kivaro-text-light mt-0.5">
+              Complete these steps to set up Kivaro
             </p>
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-xs font-medium text-owly-text-light">
+            <span className="text-xs font-medium text-kivaro-text-light">
               {completedCount} / {totalCount}
             </span>
             <button
               onClick={handleDismiss}
-              className="p-1 text-owly-text-light hover:text-owly-text rounded transition-colors"
+              className="p-1 text-kivaro-text-light hover:text-kivaro-text rounded transition-colors"
               title="Hide checklist"
             >
               <X className="h-4 w-4" />
@@ -176,16 +176,16 @@ export function OnboardingChecklist() {
         </div>
 
         {/* Progress bar */}
-        <div className="mt-3 w-full h-1.5 bg-owly-bg rounded-full overflow-hidden">
+        <div className="mt-3 w-full h-1.5 bg-kivaro-bg rounded-full overflow-hidden">
           <div
-            className="h-full bg-owly-primary rounded-full transition-all duration-500"
+            className="h-full bg-kivaro-primary rounded-full transition-all duration-500"
             style={{ width: `${progressPercent}%` }}
           />
         </div>
       </div>
 
       {/* Checklist items */}
-      <div className="divide-y divide-owly-border">
+      <div className="divide-y divide-kivaro-border">
         {items.map((item) => {
           const Icon = item.icon;
           return (
@@ -193,20 +193,20 @@ export function OnboardingChecklist() {
               key={item.id}
               href={item.href}
               className={cn(
-                "flex items-center gap-4 px-5 py-3.5 hover:bg-owly-bg/50 transition-colors group",
+                "flex items-center gap-4 px-5 py-3.5 hover:bg-kivaro-bg/50 transition-colors group",
                 item.completed && "opacity-60"
               )}
             >
               <div className="flex-shrink-0">
                 {item.completed ? (
-                  <CheckCircle className="h-5 w-5 text-owly-success" />
+                  <CheckCircle className="h-5 w-5 text-kivaro-success" />
                 ) : (
-                  <Circle className="h-5 w-5 text-owly-border" />
+                  <Circle className="h-5 w-5 text-kivaro-border" />
                 )}
               </div>
 
-              <div className="flex-shrink-0 p-2 rounded-lg bg-owly-bg">
-                <Icon className="h-4 w-4 text-owly-text-light" />
+              <div className="flex-shrink-0 p-2 rounded-lg bg-kivaro-bg">
+                <Icon className="h-4 w-4 text-kivaro-text-light" />
               </div>
 
               <div className="flex-1 min-w-0">
@@ -214,19 +214,19 @@ export function OnboardingChecklist() {
                   className={cn(
                     "text-sm font-medium",
                     item.completed
-                      ? "text-owly-text-light line-through"
-                      : "text-owly-text"
+                      ? "text-kivaro-text-light line-through"
+                      : "text-kivaro-text"
                   )}
                 >
                   {item.title}
                 </p>
-                <p className="text-xs text-owly-text-light mt-0.5">
+                <p className="text-xs text-kivaro-text-light mt-0.5">
                   {item.description}
                 </p>
               </div>
 
               {!item.completed && (
-                <ChevronRight className="h-4 w-4 text-owly-text-light group-hover:text-owly-primary transition-colors flex-shrink-0" />
+                <ChevronRight className="h-4 w-4 text-kivaro-text-light group-hover:text-kivaro-primary transition-colors flex-shrink-0" />
               )}
             </Link>
           );
@@ -234,10 +234,10 @@ export function OnboardingChecklist() {
       </div>
 
       {/* Footer */}
-      <div className="px-5 py-3 bg-owly-bg/50 border-t border-owly-border">
+      <div className="px-5 py-3 bg-kivaro-bg/50 border-t border-kivaro-border">
         <button
           onClick={handleDismiss}
-          className="text-xs text-owly-text-light hover:text-owly-text transition-colors"
+          className="text-xs text-kivaro-text-light hover:text-kivaro-text transition-colors"
         >
           Hide checklist
         </button>

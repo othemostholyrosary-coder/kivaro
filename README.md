@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/social-preview.png" alt="Owly" width="100%" />
+  <img src="docs/social-preview.png" alt="Kivaro" width="100%" />
 </p>
 
 <p align="center">
@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Hesper-Labs/owly/actions/workflows/ci.yml"><img src="https://github.com/Hesper-Labs/owly/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/othemostholyrosary-coder/owly/actions/workflows/ci.yml"><img src="https://github.com/othemostholyrosary-coder/owly/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
   <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License" />
   <img src="https://img.shields.io/badge/version-0.2.2-brightgreen.svg" alt="Version" />
   <img src="https://img.shields.io/badge/tests-274%20passed-success.svg" alt="Tests" />
@@ -27,14 +27,16 @@
 </p>
 
 <p align="center">
-  <img src="docs/demo.gif" alt="Owly Demo" width="700" />
+  <img src="docs/demo.gif" alt="Kivaro Demo" width="700" />
 </p>
 
 ---
 
-## What is Owly?
+## What is Kivaro?
 
-Owly is a **self-hosted AI customer support agent** that small businesses and individuals can run on their own machines -- completely free. Connect your WhatsApp, Email, and Phone channels, add your business knowledge, and let the AI handle customer inquiries 24/7. Owly automatically identifies customers across channels -- someone who emails first and later calls gets a unified profile with full conversation history.
+Kivaro is a **commerce-focused customer support workspace for e-commerce, B2B and SMB teams**. It brings WhatsApp, email, phone and customer conversations into one inbox, then adds the customer, company and order context agents need to resolve issues quickly. The Phase 1 product is deliberately practical: simple enough for a small firm to launch quickly, with an integration layer that lets customers connect their own specialized systems instead of forcing Kivaro to build or license every capability.
+
+Kivaro is built on the MIT-licensed Owly foundation. Existing support functionality is preserved. Missing Phase 1 capabilities are only introduced by integrating commercially compatible open-source components or by connecting customer-owned services through APIs, webhooks or an extension protocol; Kivaro does not recreate third-party products from scratch.
 
 <table>
   <tr>
@@ -98,7 +100,7 @@ Connect all your customer communication channels in one place.
 
 ### AI-Powered Conversations
 
-Owly uses OpenAI GPT (extensible to Claude, Ollama) with your knowledge base to provide accurate, on-brand responses. During conversations, the AI can autonomously:
+Kivaro uses OpenAI GPT (extensible to Claude, Ollama) with your knowledge base to provide accurate, on-brand responses. During conversations, the AI can autonomously:
 
 - **Create tickets** when customers report problems
 - **Route issues** to the right department based on expertise matching
@@ -115,7 +117,7 @@ Owly uses OpenAI GPT (extensible to Claude, Ollama) with your knowledge base to 
 
 ### Customer CRM & Cross-Channel Continuity
 
-Every customer gets a unified profile across all channels -- conversations, notes, tags, and contact history in one place. Owly automatically resolves customer identity when someone switches channels (WhatsApp to Email to Phone), keeping the full context available to both the AI and your team.
+Every customer gets a unified profile across all channels -- conversations, notes, tags, and contact history in one place. Kivaro automatically resolves customer identity when someone switches channels (WhatsApp to Email to Phone), keeping the full context available to both the AI and your team.
 
 <p align="center">
   <img src="docs/screenshots/04-customers.png" alt="Customer Management" width="100%" />
@@ -264,8 +266,8 @@ Full dark theme with persistent preference, applied across all 19 pages.
 
 ```bash
 # Clone the repository
-git clone https://github.com/hsperus/owly.git
-cd owly
+git clone https://github.com/hsperus/kivaro.git
+cd kivaro
 
 # Install dependencies
 npm install
@@ -288,8 +290,8 @@ npm run dev
 ### Option 2: Docker Compose
 
 ```bash
-git clone https://github.com/hsperus/owly.git
-cd owly
+git clone https://github.com/hsperus/kivaro.git
+cd kivaro
 
 cp .env.example .env
 # Edit .env with your API keys
@@ -302,7 +304,7 @@ Open [http://localhost:3000](http://localhost:3000) -- the setup wizard will gui
 <p align="center">
   <img src="docs/screenshots/01-login.png" alt="Login Page" width="500" />
   <br/>
-  <em>Clean login page with Owly branding</em>
+  <em>Clean login page with Kivaro branding</em>
 </p>
 
 ---
@@ -330,7 +332,7 @@ All configuration is done through the admin dashboard -- no config files to edit
 
 ## API
 
-Owly provides a full REST API with **OpenAPI 3.0 spec** at `/api/openapi.json`. Interactive documentation with live testing is available at `/api-docs` in the dashboard. All list endpoints are paginated (max 100/page) with standardized response format.
+Kivaro provides a full REST API with **OpenAPI 3.0 spec** at `/api/openapi.json`. Interactive documentation with live testing is available at `/api-docs` in the dashboard. All list endpoints are paginated (max 100/page) with standardized response format.
 
 ```bash
 # Send a message and get AI response
@@ -413,13 +415,13 @@ Every API response includes enterprise headers: `X-Request-Id`, `X-RateLimit-Lim
 ## Project Structure
 
 ```
-owly/
+kivaro/
 ├── prisma/                  # Database schema, migrations, seed
 ├── public/                  # Static assets (logo)
 ├── docs/
 │   ├── screenshots/         # UI screenshots (20 images)
 │   └── wiki/                # Full documentation (25 pages)
-├── helm/owly/               # Kubernetes Helm chart
+├── helm/kivaro/               # Kubernetes Helm chart
 │   ├── Chart.yaml
 │   ├── values.yaml
 │   └── templates/           # K8s manifests (deployment, service, ingress, hpa, etc.)
@@ -475,7 +477,7 @@ docker compose up -d
 ### Kubernetes (Helm)
 
 ```bash
-helm install owly helm/owly \
+helm install kivaro helm/kivaro \
   --set database.host=your-postgres-host \
   --set database.password=your-password \
   --set secrets.jwtSecret=$(openssl rand -hex 32) \
@@ -484,7 +486,7 @@ helm install owly helm/owly \
   --set ingress.hosts[0].host=support.yourdomain.com
 ```
 
-The Helm chart includes startup/liveness/readiness probes, horizontal pod autoscaling, Ingress with TLS, PersistentVolumeClaim for WhatsApp sessions, and init container for database migrations. See [`helm/owly/values.yaml`](helm/owly/values.yaml) for all options.
+The Helm chart includes startup/liveness/readiness probes, horizontal pod autoscaling, Ingress with TLS, PersistentVolumeClaim for WhatsApp sessions, and init container for database migrations. See [`helm/kivaro/values.yaml`](helm/kivaro/values.yaml) for all options.
 
 ---
 
@@ -531,7 +533,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 ---
 
 <p align="center">
-  <img src="public/owly.png" alt="Owly" width="48" height="48" /><br/>
-  <strong>Owly</strong> -- AI Customer Support, Enterprise Grade<br/>
+  <img src="public/kivaro.png" alt="Kivaro" width="48" height="48" /><br/>
+  <strong>Kivaro</strong> -- AI Customer Support, Enterprise Grade<br/>
   <sub>Built with Next.js 16, TypeScript, PostgreSQL, and OpenAI</sub>
 </p>
